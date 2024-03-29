@@ -19,9 +19,12 @@ There are different types of configs:
 * Unlocks      [(see format)](../configs-format/unlocks-config-format.md)
 * Modes        [(see format)](../configs-format/modes-config-format.md)
 * Tables       [(see format)](../configs-format/tables-config-format.md)
+* Triggers
+* Items
 
 [Single configs](#single-config):
 * Contacts     [(see format)](../configs-format/contacts-config-format.md)
+* Externals
 
 [Scripts configs](#scripts-config):
 * Scripts      [(see format)](../configs-format/profile-config-format.md)
@@ -51,21 +54,41 @@ To open Code Editor for Config element, click to arrow in the Code Editor column
 ![Edit element open](./images/edit-element-open.png)
 Data are edited as in a regular text editor, with [code-complete](#code-complete), [errors marker](#errors-marker) and [changes marker](#changes-marker)
 
-### Namespaces tabs
-List of enable tabs with namespace is shown on the top of the config's page.
-![Namespaces tabs](./images/namespaces-tabs.png)
-To show elements matching the needed namespace click to the tab:
-![Namespaces change tab](./images/namespaces-change-tab.png)
-To add a new config tab click of the button:
-![Namespaces add new tab](./images/namespaces-add-new-tab.png)
-Input unique name for a new tab and click to a button:
-![Namespaces add new tab submit](./images/namespaces-add-new-tab-submit.png)
-You can delete new tabs, before they are not contained elements:
-![Namespaces new tab delete](./images/namespaces-new-tab-delete.png)
-To change the namespace for config element change field "namespace" in the Code Editor and save changes
-![Namespaces change namespace](./images/namespaces-change-namespace.png)
-The element will show in the correct tab after reload page:
-![Namespaces change namespace success](./images/namespaces-change-namespace-success.png)
+#### Common actions for config elements
+You can change some config elements and save the click to button “Save all”
+![Save all elements](./images/save-all-elements.png)
+To edit the common values ​​of several config elements, select them by checking the appropriate checkboxes
+![Check elements](./images/check-elements.png)
+Click on the “Change selected” button. In the window that opens, edit the necessary values.
+![Change values for checked rows](./images/change-values-for-checked-rows.png)
+To remove a config parameter, use the parameter with value `null`
+![Delete values for checked rows](./images/delete-values-for-checked-rows.png)
+To delete selected elements click to button “Delete selected”
+![Delete selected](./images/delete-selected.png)
+You can upload config from file and download to file with buttons “Upload config” and “Download config”
+![Upload and download config](./images/upload-downoad-config.png)
+
+#### Filters
+To open the string input for filtering, click the button with the filter icon.
+![Open filter button](./images/open-filter-button.png)
+Filters available values:
+Equality/inequality - matches records where value of the field is equal/unequal to specified value, ex.: `foo=42, foo!=-3.14, foo!="a string", foo=true, foo=false`
+Regex - if field value is a string, matches it against specified regex, ex.: `foo=/^https?:\/\// foo=/^https?:\/\//`
+Comparison `(<, >, <=, >=)` - if field value is a number, compares it with specified value, ex.: `foo>42, foo<=-3.14`
+Presence - matches records where specified field is present/missing, ex.: `foo exists, foo !exists`
+Array - matches records where the value of a field equals to any value in the array, ex.: `foo in [42, -3.14, "bar", true, false]`
+Complex queries can be constructed using logical AND (&) and OR (|) operators, ex.: `foo=42&bar exists`
+Filters can be grouped by parenthesis, ex.: `foo=42&(bar exists|foo<100)`
+Operator precedence (from highest to lowest): `(), &, |`
+Spaces may be omited where possible: `foo = 42 & bar in [1, 2, 3] | baz exists` is equivalent to `foo=42&bar in[1,2,3]|baz exists`
+Array may have trailing comma: `[1, 2, 3,]` is equivalent to `[1, 2, 3]`
+To search by date, use the timestamp format `create_t=1708437468`
+
+You always can use clue to watch filters available values
+![Open filter clue](./images/open-filter-clue.png)
+To filter by dates you need to use timestamp format. To get date in timestamp format click to button into configs row beside data value.
+![Copy timestamp button](./images/copy-timestamp-button.png)
+The date in timestamp format will be copy to clipboard and you can use it in filters.
 
 ### Single config
 Single config is a json object which may contains fields with different type.
@@ -81,7 +104,10 @@ More information about [script config format](../configs-format/profile-config-f
 To upload scripts use zip archive containing folder with scripts.
 You must create zip archive by you self and than upload it using `Upload Zip` button.
 You can download scripts zip archive using `Download Zip` button.
+Вы можете загрузить конфиги из директории используя кнопку Upload from directory
 ![Upload scripts](./images/scripts.png)
+
+Под кнопками оторбражаются загруженные файлы в виде дерева
 
 ### Code Editor
 #### Code Complete
