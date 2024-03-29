@@ -135,6 +135,7 @@ To deploy configs to the services use Deploy menu item.
 The deploy window has 2 tabs:
 * Tags List
 * Compare
+* История
 
 ### Tags List
 Еag list tab provides an interface for working with tags: adding tags, uploading configs from tag, exporting data from tag, etc.
