@@ -115,12 +115,11 @@ More information about [script config format](../configs-format/profile-config-f
 
 #### Upload/Download scripts archive
 To upload scripts use zip archive containing folder with scripts.
-You must create zip archive by you self and than upload it using `Upload Zip` button.
-You can download scripts zip archive using `Download Zip` button.
-Вы можете загрузить конфиги из директории используя кнопку Upload from directory
+You must create zip archive by you self and than upload it using “Upload Zip” button.
+You can download scripts zip archive using “Download Zip” button.
+You can upload configs from the directory using the “Upload from directory” button
 ![Upload scripts](./images/scripts.png)
-
-Под кнопками оторбражаются загруженные файлы в виде дерева
+Below the buttons the downloaded files are displayed in the form of a tree.
 
 ### Code Editor
 #### Code Complete
@@ -148,44 +147,41 @@ To deploy configs to the services use Deploy menu item.
 The deploy window has 2 tabs:
 * Tags List
 * Compare
-* История
+* History
 
 ### Tags List
 Еag list tab provides an interface for working with tags: adding tags, uploading configs from tag, exporting data from tag, etc.
 ![Tag list](./images/tag-list-tab.png)
 
-#### Fast deploy configs
-The easiest way to deploy configs to services is `Fast update`.
-![Fast deploy](./images/fast-deploy.png)
-This will directly upload current configs to services, just like from a master in git.
-Fast update automatically create special tag `_fast`. This tag rewrite each time you use `Fast update`.
-![Fast deploy](./images/fast-deploy-tag.png)
-
-'Fast update' is useful on test circuit, but this is not good idea for production.
-The best way - save the configs in a tag first, as add git tag. And then deploy to services from tag.
-In the future, you can reuse this tag, for deploy or restore configs from it.
-
-#### Add new tag
-To add new tag from current configs press `Add tag`.
+#### Add new tag or update tag
+To add new tag or update tag press “Add/Update tag”.
 :::note
-Tag name must be unique.
+Tag name must be unique. If name isn't unique the tag will be overwriting.
 :::
 ![Add tag](./images/add-tag.png)
+You can use current configs or import tag from data for fill tags.
+![Current configs or import from tag](./images/current-configs-import-from-tag.png)
+
+#### Validate tag
+To validate tag click to “Validate” button
+![Validate tag](./images/validate-tag.png)
+You can validate all tag by one button “Valid all”
+![Valid all](./images/valid-all-button.png)
+
 
 #### Deploy configs from tag
-To deploy configs from tag click `Update configs` button and than confirm deploy:
+To deploy configs from tag click “Deploy” button and than confirm deploy:
 ![Deploy tag](./images/deploy-tag.png)
+:::note
+Deploy button becomes enable after validation and if result of validation is Valid.
+:::
 You can see updates progress information after launching the update for any configs:
 ![Deploy progress](./images/deploy-progress.png)
 Last deployed tag shows in the top of the table:
 ![Last deployed tag](./images/last-deployed-tag.png)
 
-#### Import tag
-Also you can import configs, press `Import tag` button. Set the tag name and paste configs text to the modal window:
-![Import tag data](./images/import-tag.png)
-
 #### Copy configs to buffer
-To get configs from tag use `Copy to buffer` button:
+To get configs from tag use “Copy to buffer” button:
 ![Copy to buffer](./images/copy-tag-to-buffer.png)
 Also you can copy to buffer current configs:
 ![Copy current to buffer](./images/copy-current-to-buffer.png)
@@ -199,6 +195,17 @@ You can replace all current configs to configs from tag, just press 'Restore con
 Click to arrow button to display tag configs:
 ![View tag](./images/view-tag.png)
 
+#### Delete tag
+To delete tag click to button
+![Delete tag](./images/delete-tag.png)
+You can delete some selected tags with button “Delete selected”
+![Delete selected tags](./images/delete-selected-tags.png)
+
+#### Filters
+To open the string input for filtering, click the button with the filter icon.
+![Tags filters](./images/tags-filters.png)
+More information about [filters](../gui/configs-management#filters).
+
 ### Compare
 Select "Compare" tab to view diff between 2 tags:
 ![Compare tab](./images/compare-tab.png)
@@ -208,3 +215,10 @@ You can see the difference in this section after clicking on the block with chan
 ![Tags diff](./images/tags-diff.png)
 A large number of equal lines are hidden in differentials. If you want to see more equal rows, select the value in the context selection:
 ![Tags diff rows](./images/tags-diff-rows.png)
+
+### History
+Select "History" tab to view deploy history:
+![History tab](./images/history-tab.png)
+You can filter deploy history by tag names or time (from time/to time) or open the string input for filtering, click the button with the filter icon.
+![History tab filter](./images/history-tab-filter.png)
+More information about [filters](../gui/configs-management#filters).
