@@ -55,7 +55,7 @@ To open Code Editor for Config element, click to arrow in the Code Editor column
 Data are edited as in a regular text editor, with [code-complete](#code-complete), [errors marker](#errors-marker) and [changes marker](#changes-marker)
 
 #### Common actions for config elements
-You can change some config elements and save the click to button “Save all”
+You can change some config elements and save it by the click to button “Save all”
 ![Save all elements](./images/save-all-elements.png)
 To edit the common values ​​of several config elements, select them by checking the appropriate checkboxes
 ![Check elements](./images/check-elements.png)
@@ -94,7 +94,7 @@ The date in timestamp format will be copy to clipboard and you can use it in fil
 List of enable tabs with namespace is shown on the top of the config's page.
 ![Namespaces tabs](./images/namespaces-tabs.png)
 To show elements matching the needed namespace click to the tab.
-To add a new config tab click of the button “Add namespace”. Input unique name for a new tab and click to the “Ok” button:
+To add a new config tab - click of the button “Add namespace”. Input unique name for a new tab and click to the “Ok” button:
 ![Add namespace](./images/add-namespace.png)
 You can delete new tabs, before they are not contained elements.
 ![Delete namespace](./images/delete-namespace.png)
